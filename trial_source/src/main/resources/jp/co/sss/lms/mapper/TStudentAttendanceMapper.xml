@@ -85,5 +85,17 @@
 			blank_time = #{blankTime}
 		WHERE student_attendance_id = #{studentAttendanceId}
 	</update>
-
+<select id="notEntorCount" resultType="java.lang.Integer">
+SELECT COUNT(*)
+FROM t_student_attendance
+WHERE lms_User_Id = #{lmsUserId}
+AND deleteFlg = #{deleteFlg}
+AND trainingDate '$lt;' #{trainingDate}
+AND status i= 1
+AND (trainingStartTime =''
+OR trainingEndTime = ''
+OR trainingStartTime IS NULL
+OR trainingEndTime IS NULL)
+</select>>
+ 
 </mapper>
