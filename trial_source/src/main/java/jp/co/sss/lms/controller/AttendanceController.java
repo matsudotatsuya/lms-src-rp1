@@ -1,6 +1,7 @@
 package jp.co.sss.lms.controller;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -140,8 +141,27 @@ public class AttendanceController {
 		List<AttendanceManagementDto> attendanceManagementDtoList = studentAttendanceService
 				.getAttendanceManagement(loginUserDto.getCourseId(), loginUserDto.getLmsUserId());
 		model.addAttribute("attendanceManagementDtoList", attendanceManagementDtoList);
+		//件数取得
+	//	int notEnterdCount = studentAttendanceService.NotEnteredAttendanceCount();
+		
+	//件数1件以上判別
+	//	boolean message = notEnteredCount > 0;
 
+		model.addAttribute("message",message);
+		
+		
 		return "attendance/detail";
 	}
+	SimpleDateFormat datedate = new SimpleDateFormat();
+	//public Integer enterCount(Integer lmsUserId) {
+		//Date trainingDate = attendanceUtil.getTrainingDate();
+		//Integer Count = TStudentAttendanceMapper.notEnterCount(lmsUserId,Constants.DB_FLG_FALSE,trainingDate);
+		//return count;
+}	
 
-}
+	
+
+
+
+
+

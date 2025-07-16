@@ -333,5 +333,23 @@ public class StudentAttendanceService {
 		// 完了メッセージ
 		return messageUtil.getMessage(Constants.PROP_KEY_ATTENDANCE_UPDATE_NOTICE);
 	}
-
-}
+//@RequestMapping(path = "/detail", method = RequestMethod.GET)
+//public String index(Model model) {
+//勤怠一覧の取得
+	//List<AttendanceManagementDto> attendanceManagementDtoList = StudentAttendanceService
+		//	.getAttendanceManagement(loginUserDto.getCourseId(),loginUserDto.getlmsUserId());
+//	model.addAttribute("attendanceManagementDtoList",attendanceManagementDtoList);
+	
+	//Integer count = StudentAttendanceService.enterCount(loginUserDto.getLmsUserId());
+	//if(count > 0) {
+	//	model.addAttribute("error","過去日の勤怠に未入力があります。");
+	//}
+	//return "attendance/detail";
+	
+	
+//エラー
+/*public int NotEnteredAttendanceCount() {
+	return tStudentAttendanceMapper.notEnterCount(
+			loginUserDto.getLmsUserId().
+			Constants.DB_FLG_FALSE,new Date());
+*/}
