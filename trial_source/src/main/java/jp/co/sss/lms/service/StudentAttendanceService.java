@@ -1,6 +1,7 @@
 package jp.co.sss.lms.service;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -332,24 +333,19 @@ public class StudentAttendanceService {
 		}
 		// 完了メッセージ
 		return messageUtil.getMessage(Constants.PROP_KEY_ATTENDANCE_UPDATE_NOTICE);
-	}
-//@RequestMapping(path = "/detail", method = RequestMethod.GET)
-//public String index(Model model) {
-//勤怠一覧の取得
-	//List<AttendanceManagementDto> attendanceManagementDtoList = StudentAttendanceService
-		//	.getAttendanceManagement(loginUserDto.getCourseId(),loginUserDto.getlmsUserId());
-//	model.addAttribute("attendanceManagementDtoList",attendanceManagementDtoList);
+
+}
+	public Integer getNotEnterCount(Integer lmsUserId) {
+		try {
+			SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+			Date trainingDate = df.parse(df.format(new Date()));
+			Integer notEnterCount = tStudentAttendanceMapper.notEnterCount(lmsUserId, Constants.DB_FLG_FALSE, trainingDate);
+        return notEnterCount;
+    } catch (ParseException e) {
+        e.printStackTrace();
+        return 0;
+    }
+
+}}
+
 	
-	//Integer count = StudentAttendanceService.enterCount(loginUserDto.getLmsUserId());
-	//if(count > 0) {
-	//	model.addAttribute("error","過去日の勤怠に未入力があります。");
-	//}
-	//return "attendance/detail";
-	
-	
-//エラー
-/*public int NotEnteredAttendanceCount() {
-	return tStudentAttendanceMapper.notEnterCount(
-			loginUserDto.getLmsUserId().
-			Constants.DB_FLG_FALSE,new Date());
-*/}

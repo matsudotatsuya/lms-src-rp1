@@ -88,13 +88,13 @@
 <select id="notEnterCount" resultType="java.lang.Integer">
 SELECT COUNT(*)
 FROM t_student_attendance
-WHERE lms_User_Id = #{lmsUserId}
+WHERE lms_user_Id = #{lmsUserId}
 AND training_date &lt; #{trainingDate}
 AND status != 1
 AND (training_Start_Time =''
 OR training_End_time = ''
 OR training_Start_time IS NULL
 OR training_End_time IS NULL)
-</select>>
+</select>
  
 </mapper>

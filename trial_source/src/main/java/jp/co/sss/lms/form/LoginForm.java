@@ -30,5 +30,9 @@ public class LoginForm {
 	/** 確認パスワード */
 	@NotBlank(groups = { ChangePasswordGroup.class, ResetPasswordGroup.class })
 	private String passwordConfirm;
+	public String getUserId() {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
 
 }
