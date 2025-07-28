@@ -48,6 +48,14 @@ public class AttendanceController {
 				.getAttendanceManagement(loginUserDto.getCourseId(), loginUserDto.getLmsUserId());
 		model.addAttribute("attendanceManagementDtoList", attendanceManagementDtoList);
 		model.addAttribute("attendanceManagementDtoList",attendanceManagementDtoList);
+		
+		//件数取得
+			int notEnterdCount = studentAttendanceService.getNotEnterCount(loginUserDto.getLmsUserId());
+			
+		//件数1件以上判別
+	boolean hasNotEnterCount= notEnterdCount > 0;
+			model.addAttribute("hasNotEnterCount",hasNotEnterCount);
+			
 		return "attendance/detail";
 	}
 
@@ -141,14 +149,6 @@ public class AttendanceController {
 		List<AttendanceManagementDto> attendanceManagementDtoList = studentAttendanceService
 				.getAttendanceManagement(loginUserDto.getCourseId(), loginUserDto.getLmsUserId());
 		model.addAttribute("attendanceManagementDtoList", attendanceManagementDtoList);
-		//件数取得
-	//	int notEnterdCount = studentAttendanceService.NotEnteredAttendanceCount();
-		
-	//件数1件以上判別
-	//	boolean message = notEnteredCount > 0;
-
-		model.addAttribute("message",message);
-		
 		
 		return "attendance/detail";
 	}
